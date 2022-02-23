@@ -3,7 +3,12 @@ const Announcement = require("../schemas/announcement.model");
 
 router.route("/").get((req, res) => {
   Announcement.find()
-    .then((announcements => res.json(announcements)))
+    .then((announcements => {
+      announcements.sort(function(a, b) {
+        return b.createdAt - a.createdAt
+      })
+      res.json(announcements.slice(0, 3));
+    }))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 

@@ -23,5 +23,5 @@ app.use('/announcement', announcementRouter);
 app.use('/event', eventRouter);
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`adsfServer running on port ${port}`);
 });

@@ -2,9 +2,13 @@ const router = require("express").Router();
 let Event = require("../schemas/event.model");
 
 router.route("/").get((req, res) => {
-  // /event
   Event.find()
-    .then((events => res.json(events)))
+    .then((events => {
+      events.sort(function(a, b) {
+        return b.createdAt - a.createdAt
+      })
+      res.json(events.slice(0, 6));
+    }))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 

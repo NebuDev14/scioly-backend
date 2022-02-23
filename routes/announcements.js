@@ -7,7 +7,7 @@ router.route("/").get((req, res) => {
       announcements.sort(function(a, b) {
         return b.createdAt - a.createdAt
       })
-      res.json(announcements.slice(0, 2));
+      res.json(announcements.slice(0, 3));
     }))
     .catch((err) => res.status(400).json("Error: " + err));
 });

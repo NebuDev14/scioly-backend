@@ -16,6 +16,12 @@ mongoose.connection.once('open', () => {
    console.log("connected to mongodb") 
 });
 
+const announcementRouter = require('./routes/announcements');
+const eventRouter = require('./routes/events');
+
+app.use('/announcement', announcementRouter);
+app.use('/event', eventRouter);
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

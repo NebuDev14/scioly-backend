@@ -4,9 +4,7 @@
   "description": "Backend server for the Bronx Science Science Olympiad website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js",
-    "build": "npx babel src -d build"
+    "test": "node ./src/index.js"
   },
   "repository": {
     "type": "git",

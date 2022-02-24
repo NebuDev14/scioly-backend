@@ -27,4 +27,11 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/delete").post((req, res) => {
+  const name = req.body.name;
+  Event.deleteOne({ name: name })
+    .then(() => res.json("event removed from existence"))
+    .catch((err) => res.status(400).json("Error: " + err))
+});
+
 module.exports = router;
